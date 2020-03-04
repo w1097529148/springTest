@@ -6,11 +6,11 @@
     <Layout>
     <!-- 头部-->
         <Header style="background-color:white;margin:0;padding:0;height:100px;"  >
-<headt :userInfo="Message" v-if="this.Message"></headt>
+<headt  v-if="this.Message"></headt>
 </Header>
 <Content>
        <div>
-    <router-view :Message="this.Message" v-if="this.Message"/>
+    <router-view  v-if="this.Message"/>
        </div>
 </Content>
 
@@ -26,10 +26,7 @@ import foot from './components/footer/footer';
     export default {
     data(){
         return {
-Message:{}
-
       }
-
     },
     components:{
     headt,
@@ -47,17 +44,14 @@ Message:{}
                       _this.fix1=false;
                       }
                         },
-getParams(){
-if(this.$route.query.message){
-        // 取到路由带过来的参数
-this.Message= JSON.parse(this.$route.query.message);
-
+},
+computed:{
+Message(){
+return this.$store.getters.user
 }
 },
-            },
            mounted(){
                       window.addEventListener('scroll',this.scrollHandle);//绑定页面滚动事件
-                      this.getParams();
                   },
     }
 </script>

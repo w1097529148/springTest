@@ -73,7 +73,7 @@ export default {
        },
        mounted: function () {
        if(this.t)
-           this.countdown(this.t.substring(0,8))
+           this.countdown(this.getCurseTimes.substring(0,8))
        },
        methods: {
           countdown(times){
@@ -208,7 +208,7 @@ if(newval<0){
 this.disable=!this.disable
 window.clearInterval(this.timer)
     if(!this.disable)  {
-      this.countdown(this.t.substring(9,17))
+      this.countdown(this.getCurseTimes.substring(9,17))
     }
 else{
 this.disable=true

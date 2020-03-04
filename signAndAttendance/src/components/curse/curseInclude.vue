@@ -135,7 +135,6 @@ curse:['0','1','教学方','3','年龄','5','联系方式','学历','主修方�
 Params:{},
 teacherMessage:{},
 modal:false,
-userMessage:{},
 times:'',
 disable:false,
 loading:true
@@ -145,8 +144,6 @@ methods:{
       getParams(){
         // 取到路由带过来的参数
         this.Params = JSON.parse(this.$route.query.curseData);
-        if(this.$route.query.message)
-        this.userMessage = JSON.parse(this.$route.query.message);
         if(this.$route.query.teacher)
         this.teacherMessage = JSON.parse(this.$route.query.teacher);
       },
@@ -177,6 +174,11 @@ this.disable=resp.data[key]
 console.log(error)
 })
 }
+      },
+      computed:{
+      userMessage(){
+      return this.$store.getters.user
+      }
       },
       mounted:function(){
     this.getParams();

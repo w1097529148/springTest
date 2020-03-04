@@ -104,16 +104,20 @@ this.$http.get('http://localhost:8100/login/login', {
                             value:this.formInline.radio
 	}
 })
-.then((response)=> {
+.then((res)=> {
+if(res.status === 200){
+                const that = this;
 alert("请求通过")
-for(let key in response.data){
-this.passMessages=response.data[key]
+for(let key in res.data){
+that.passMessages=res.data[key]
 }
-this.$router.replace({
-    path:'/index/mainPage',
-    query:{
-      message:JSON.stringify(this.passMessages)
-  }})
+// 将登录信息使用vuex传递到mainPage页面
+this.$store.commit('handleUserName',this.passMessages);
+ that.$router.push({name:'mainPage'})
+}
+
+
+
 })
 .catch((error)=> {
  console.log(error);

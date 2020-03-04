@@ -46,8 +46,6 @@ text:{
 default:'与我相关',
 type:String
 },
-user:{},
-
 message:{
 type:Array
 },
@@ -55,6 +53,11 @@ teacher:{
 type:Array,
 }
 },
+computed:{
+user(){
+return this.$store.getters.user
+}
+}
 
 }
 </script>

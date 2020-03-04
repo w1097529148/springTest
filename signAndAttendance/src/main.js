@@ -33,9 +33,9 @@ router.afterEach(route => {
 });
 new Vue({
   el: '#app',
+  store,
   router,
   VueI18n,
-  store,
   components: { App },
   template: '<App/>'
 })

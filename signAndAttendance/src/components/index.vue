@@ -41,13 +41,13 @@
 <Content>
 <Row style="width:75%;margin:0 auto" v-if="this.routerParams" >
 <!--与我相关-->
-<doing :message="this.routerParams.与我相关" :user="this.Message" :teacher="this.routerParams.我的教师?this.routerParams.我的教师:null">
+<doing :message="this.routerParams.与我相关" :teacher="this.routerParams.我的教师?this.routerParams.我的教师:null">
 </doing>
 <!--精品推荐-->
-<doing :text="this.text" :message="this.routerParams.全部课程" :user="this.Message" :teacher="this.routerParams.全部教师">
+<doing :text="this.text" :message="this.routerParams.全部课程"  :teacher="this.routerParams.全部教师">
 </doing>
 <!--更多-->
-<doing  :text="this.text1" :message="this.routerParams.全部课程" :user="this.Message" :teacher="this.routerParams.全部教师">
+<doing  :text="this.text1" :message="this.routerParams.全部课程"  :teacher="this.routerParams.全部教师">
 </doing>
 </Row>
 </Content>
@@ -64,9 +64,6 @@ import droptest from './dropdown/droptest';
 
     export default {
     name:"index",
-    props:{
-    Message:{}
-    },
     data(){
         return {
         hello:'hello',
@@ -96,9 +93,11 @@ teacherId:this.Message.teacherId
     console.log(error)})
     }
         },
-                  watch:{
-                  Message:'getMessages'
-                  },
+computed:{
+Message(){
+return this.$store.getters.user
+}
+},
                   created(){
                this.getMessages()
                   }

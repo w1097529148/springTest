@@ -34,13 +34,13 @@
 <Content>
 <Row style="margin:0 auto" v-if="this.routerParams" >
 <!--与我相关-->
-<doing :text="'查询结果'" :message="this.test" :user="this.Message" :teacher="this.routerParams.我的教师" v-if="test[0]">
+<doing :text="'查询结果'" :message="this.test"  :teacher="this.routerParams.我的教师" v-if="test[0]">
 </doing>
 <!--精品推荐-->
-<doing :text="'精品推荐'" :message="this.routerParams.全部课程" :user="this.Message" :teacher="this.routerParams.全部教师">
+<doing :text="'精品推荐'" :message="this.routerParams.全部课程"  :teacher="this.routerParams.全部教师">
 </doing>
 <!--更多-->
-<doing  :text="'全部课程'" :message="this.routerParams.全部课程" :user="this.Message" :teacher="this.routerParams.全部教师">
+<doing  :text="'全部课程'" :message="this.routerParams.全部课程" :teacher="this.routerParams.全部教师">
 </doing>
 </Row>
 </Content>
@@ -59,9 +59,6 @@
 import doing from '../doing/doing';
 import HelloWorld from '../hot/hot';
 export default {
-props:{
-Message:{}
-},
 data(){
 return{
 curses:[
@@ -100,9 +97,11 @@ Id:this.Message.studentId
 
             },
         },
-                  watch:{
-                  Message:'getMessages'
-                  },
+        computed:{
+        Message(){
+        return this.$store.getters.user
+        }
+        },
                   mounted(){
                   this.getMessages();
                   },

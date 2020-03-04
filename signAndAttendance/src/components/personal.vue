@@ -33,7 +33,6 @@
     <Col span="12">
     <div>
         <router-view :Message="Message"/>
-
     </div>
 </Col>
 </Row>
@@ -44,9 +43,6 @@
 <script>
 
     export default {
-    props:{
-    Message:{}
-    },
     data(){
         return {
         icons:[
@@ -58,6 +54,11 @@
         ],
         }
         },
+        computed:{
+        Message(){
+  return this.$store.getters.user
+        }
+        }
     }
 </script>
 

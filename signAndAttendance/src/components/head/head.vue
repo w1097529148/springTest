@@ -56,22 +56,20 @@
 
 <script>
 export default {
-props:{
-userInfo:{
-}
-},
 data(){
 return{
 user:{}
 }
 },
+computed:{
+userInfo(){
+return this.$store.getters.user
+}
+},
 methods:{
 getPersonal(){
 this.$router.push({
-    path:'/index/Personal',
-    query:{
-      message:JSON.stringify(this.userInfo)
-  }})
+   name:'personal'})
 }
 },
 }

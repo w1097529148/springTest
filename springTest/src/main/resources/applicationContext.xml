@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+<bean id="brand" class="com.spring.bean.Brand">
+    <property name="name" value="五菱宏光"/>
+    <property name="price" value="288888.88"/>
+    <property name="address" value="成都"/>
+    <property name="car" ref="car"/>
+</bean>
+<bean id="car" class="com.spring.bean.Car">
+    <property name="CarName" value="比亚迪"/>
+    <property name="CarType" value="货车"/>
+</bean>
+</beans>

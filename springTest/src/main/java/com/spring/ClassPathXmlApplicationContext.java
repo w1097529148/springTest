@@ -30,8 +30,20 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
     public ClassPathXmlApplicationContext(String resourcesName) {
 
         Document document = getInputStream(resourcesName);
-        ioc(document);
-        di(document);
+        //SelectNodes("item")
+        //
+        //从当前节点的儿子节点中选择名称为 item 的节点。
+        //
+        //SelectNodes("/item")
+        //
+        //从根节点的儿子节点中选择名称为 item 的节点。
+        //
+        //SelectNodes("//item")
+        //
+        //从任意位置的节点上选择名称为 item 的节点。要重点突出这个任意位置，它不受当前节点的影响，也就是说假如当前节点是在第 100 层（有点夸张），也可以选择第一层的名称为 item 的节点。
+        List<Node> beans = document.selectNodes("//bean");
+        ioc(beans);
+        di(beans);
     }
 
     private Document getInputStream(String resourcesName){
@@ -49,19 +61,7 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
     }
 
     //dom4j解析xml结合反射创建对象
-    private void ioc(Document document){
-//SelectNodes("item")
-//
-//从当前节点的儿子节点中选择名称为 item 的节点。
-//
-//SelectNodes("/item")
-//
-//从根节点的儿子节点中选择名称为 item 的节点。
-//
-//SelectNodes("//item")
-//
-//从任意位置的节点上选择名称为 item 的节点。要重点突出这个任意位置，它不受当前节点的影响，也就是说假如当前节点是在第 100 层（有点夸张），也可以选择第一层的名称为 item 的节点。
-        List<Node> beans = document.selectNodes("//bean");
+    private void ioc(List<Node> beans){
         if (beans!=null) {
             for (Node bean : beans) {
                 //给定节点的类型字符串值
@@ -86,9 +86,7 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
     }
 
     //依赖注入
-    private void di(Document document){
-
-        List<Node> beans = document.selectNodes("//bean");
+    private void di(List<Node> beans){
         if (beans!=null) {
             for (Node bean : beans) {
                 String key = bean.valueOf("@id") != null ? bean.valueOf("@id") : bean.valueOf("@name");

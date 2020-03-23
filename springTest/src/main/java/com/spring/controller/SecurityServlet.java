@@ -45,11 +45,12 @@ public class SecurityServlet extends HttpServlet {
             PageBean pageBean=new PageBean();
             pageBean.setRequest(req);
             pageBean.setTotal(security.querySecurityTotal());
+            System.out.println("pageBean = " + pageBean);
             List<Privilege> privileges = security.querySecurityPage(pageBean);
             if (CollectionUtils.isNotEmpty(privileges))
                 req.setAttribute("list",privileges);
             req.setAttribute("pagebean", pageBean);
-                req.getRequestDispatcher("/security/index.jsp").forward(req, resp);
+                req.getRequestDispatcher("/security/page.jsp").forward(req, resp);
 
         }
 

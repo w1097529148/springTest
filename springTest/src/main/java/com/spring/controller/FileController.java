@@ -1,35 +1,21 @@
 package com.spring.controller;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadBase;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import sun.net.ProgressListener;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.util.List;
-import java.util.UUID;
-
+import com.spring.bean.Privilege;
+import com.spring.mapper.SecurityMapper;
+import com.spring.utils.MybatisUtils;
+import org.apache.commons.lang3.StringUtils;
 /**
  * @Description T000
  * @Author Mr.Li
  * @Date 2020/3/19 17:12
  */
-@WebServlet("/FileController")
-public class FileController extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       doGet(req,resp);
+public class FileController{
+    public static  String elEncode(Integer userId,String name,String uri,String desc){
+        SecurityMapper mapper = MybatisUtils.getMapper(SecurityMapper.class);
+        Integer integer=0;
+        if (!StringUtils.isAllBlank(name,uri,desc)||userId!=null){
+             integer = mapper.updateSecurity(new Privilege(userId, name, uri, desc));
+        }
+            return integer>0?"修改成功":"修改失败";
     }
 }

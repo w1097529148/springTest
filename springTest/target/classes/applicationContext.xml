@@ -5,5 +5,5 @@
     <bean id="fileServiceImpl" class="com.spring.serviceImpl.FileServiceImpl"/>
     <bean id="roleServiceImpl" class="com.spring.serviceImpl.RoleServiceImpl"/>
     <bean id="userServiceImpl" class="com.spring.serviceImpl.UserServiceImpl"/>
-    <bean id="page" class="com.spring.bean.Page"/>
+    <bean id="pageBean" class="com.spring.bean.PageBean"/>
 </beans>

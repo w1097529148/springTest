@@ -3,6 +3,7 @@ package com.spring.bean;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
+import javax.servlet.jsp.tagext.Tag;
 import java.io.IOException;
 import java.util.Map;
 
@@ -18,6 +19,10 @@ public class PageTag extends BodyTagSupport {
 
     @Override
     public int doStartTag() throws JspException {
+        String pagination = pageContext.getRequest().getParameter("pagination");
+        if ("false".equals(pagination)){
+            return Tag.SKIP_BODY;//控制自定义标签不执行
+        }
         JspWriter out = pageContext.getOut();
         try {
             out.write(toHTML());
@@ -36,7 +41,8 @@ public class PageTag extends BodyTagSupport {
             for(Map.Entry<String, String[]> entry:paramMap.entrySet()) {
                 if(!"page".equals(entry.getKey())) {
                     for(String val:entry.getValue()) {
-                        sb.append("<input type='hidden' name='"+entry.getKey()+"'> value='"+val+"'");
+                        if (!"pagination".equals(entry.getKey()))
+                            sb.append("<input type='hidden' name='"+entry.getKey()+"'> value='"+val+"'");
                     }
                 }
             }
@@ -70,7 +76,6 @@ public class PageTag extends BodyTagSupport {
         sb.append("		gotoPage(page);");
         sb.append("	}");
         sb.append("</script>");
-
         return sb.toString();
     }
 

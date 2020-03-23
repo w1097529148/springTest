@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+<%@taglib prefix="el" uri="http://my.el.function" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,6 +25,18 @@
 
 <h3>自定义标签</h3>
 <a href="/SecurityServlet">分页</a>
+<button value="修改权限" onclick="update(${el:FunctionsEl('1','3','5','9')})"> 修改权限</button>
+<%--<script type="text/javascript">--%>
+<%--        function update() {--%>
+<%--                var id=1;--%>
+<%--                var name="1";--%>
+<%--                var uri="2";--%>
+<%--                var desc="update";--%>
+<%--                var s = "${el:FunctionsEl(1,'3','5','8')}";--%>
+<%--                alert(s)--%>
+<%--        }--%>
+<%--</script>--%>
+${el:FunctionsEl('1','3',5,9)}
 </body>
 
 </html>

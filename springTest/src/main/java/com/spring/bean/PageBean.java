@@ -19,7 +19,7 @@ public class PageBean {
 
     private int total = 0;// 总记录数
 
-    private boolean pagination = true;// 是否分页
+    private boolean pagination = false;// 是否分页
 
     private String url;
     private Map<String, String[]> paramMap = new HashMap<>();
@@ -45,6 +45,18 @@ public class PageBean {
         if (StringUtils.isNotBlank(rows))
             this.setRows(Integer.valueOf(rows));
 
+    }
+
+    @Override
+    public String toString() {
+        return "PageBean{" +
+                "page=" + page +
+                ", rows=" + rows +
+                ", total=" + total +
+                ", pagination=" + pagination +
+                ", url='" + url + '\'' +
+                ", paramMap=" + paramMap +
+                '}';
     }
 
     public void setPage(String page) {
@@ -118,10 +130,6 @@ public class PageBean {
         return (this.page - 1) * this.rows;
     }
 
-    @Override
-    public String toString() {
-        return "PageBean [page=" + page + ", rows=" + rows + ", total=" + total + ", pagination=" + pagination + "]";
-    }
 
     /**
      * 获取到总页数

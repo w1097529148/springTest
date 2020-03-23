@@ -7,7 +7,7 @@
     <display-name>zking core</display-name>
     <tlib-version>1.1</tlib-version>
     <short-name>c</short-name>
-    <uri>/xuyang</uri><!-- 这是你引入标签库的语句 -->
+    <uri>/</uri>
     <tag>
         <name>page</name>
         <tag-class>com.spring.bean.PageTag</tag-class>

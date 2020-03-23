@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.SecurityMapper">
+    <sql id="selectSecurityForm" >
+        select id,security_name,security_resource,security_desc from tb_security
+    </sql>
+    <resultMap id="resultMap" type="com.spring.bean.Privilege">
+        <id property="id" column="id"/>
+        <result property="name" column="security_name"/>
+        <result property="uri" column="security_resource"/>
+        <result column="security_desc" property="description"/>
+    </resultMap>
+    <sql id="querySecurityWhere">
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null and name!=''">
+                and security_name=#{name}
+            </if>
+            <if test="uri!=null and uri!=''">
+                and security_resource=#{uri}
+            </if>
+        </where>
+    </sql>
+    <select id="findSecurityById" parameterType="int" resultMap="resultMap">
+        <include refid="selectSecurityForm"/>
+        where id=#{id}
+    </select>
+
+    <select id="querySecurityAll"  parameterType="com.spring.bean.Privilege"  resultMap="resultMap">
+        <include refid="selectSecurityForm"></include>
+        <include refid="querySecurityWhere"></include>
+    </select>
+    <select id="querySecurityByRoleId" resultMap="resultMap" parameterType="int">
+            SELECT s.`id`,s.`security_name`,s.`security_resource`,s.`security_desc` FROM tb_security s JOIN  tb_role_security u ON s.id=u.security_id AND u.role_id=#{id}
+    </select>
+    <insert id="insertSecurity" parameterType="com.spring.bean.Privilege" >
+       insert into tb_security(security_name,security_resource,security_desc) VALUES(#{name},#{uri},#{description})
+    </insert>
+
+    <update id="updateSecurity" parameterType="com.spring.bean.Privilege">
+        update tb_security SET security_name=#{name},security_resource=#{uri},security_desc=#{description} where id=#{id}
+    </update>
+
+    <delete id="deleteSecurityById" parameterType="int">
+        delete from tb_security where id=#{id}
+    </delete>
+
+    <select id="querySecurityTotal" resultType="int">
+        select  count(id) from tb_security
+    </select>
+
+    <select id="querySecurityPage" resultMap="resultMap" parameterType="com.spring.bean.Page">
+        SELECT * FROM tb_security LIMIT #{pageNumbers},#{pageSize};
+    </select>
+</mapper>

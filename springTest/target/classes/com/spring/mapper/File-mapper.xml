@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.FileMapper">
+<!--    <sql id="selectFileForm" >-->
+<!--        select id,file_name,file_path,suffix,create_time,update_time,user_id from tb_file-->
+<!--    </sql>-->
+<!--    <resultMap id="resultMap" type="com.spring.bean.File">-->
+<!--        <id property="id" column="id"/>-->
+<!--        <result property="name" column="file_name"/>-->
+<!--        <result property="filePath" column="file_path"/>-->
+<!--        <result column="suffix" property="suffix"/>-->
+<!--    </resultMap>-->
+<!--    <sql id="queryFileWhere">-->
+<!--        <where>-->
+<!--            <if test="id!=null">-->
+<!--                and id=#{id}-->
+<!--            </if>-->
+<!--            <if test="fileName!=null and fileName!=''">-->
+<!--                and file_name=#{fileName}-->
+<!--            </if>-->
+<!--            <if test="filePath!=null and filePath!=''">-->
+<!--                and file_path=#{filePath}-->
+<!--            </if>-->
+<!--            <if test="createdTime!=null and createdTime!=''">-->
+<!--                and created_time like #{createdTime}-->
+<!--            </if>-->
+<!--            <if test="updateTime!=null and updateTime!=''">-->
+<!--                and update_time like #{updateTime}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </sql>-->
+<!--    <select id="findFileById" parameterType="int"  resultMap="resultMap">-->
+<!--        <include refid="selectFileForm"/>-->
+<!--        where id=#{id}-->
+<!--    </select>-->
+
+<!--    <select id="queryFileAll"  parameterType="com.spring.bean.File"  resultMap="resultMap">-->
+<!--        <include refid="selectFileForm"></include>-->
+<!--        <include refid="queryFileWhere"></include>-->
+<!--    </select>-->
+<!--    <insert id="insertFile" parameterType="com.spring.bean.File" >-->
+<!--       insert into tb_file(file_name,file_path,suffix,created_time,update_time,user_id) VALUES(#{fileName},#{filePath},#{suffix},#{createdTime},#{updateTime},#{userId})-->
+<!--    </insert>-->
+
+<!--    <update id="updateFile" parameterType="com.spring.bean.File">-->
+<!--        UPDATE tb_file SET file_name=#{fileName},file_path=#{filePath},suffix=#{suffix},update_time=#{updateTime} where id=#{id}-->
+<!--    </update>-->
+
+<!--    <delete id="deleteFileById" parameterType="int">-->
+<!--        delete from tb_file where id=#{id}-->
+<!--    </delete>-->
+    
+
+</mapper>

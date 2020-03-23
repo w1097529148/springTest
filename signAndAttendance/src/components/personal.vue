@@ -47,7 +47,7 @@
         return {
         icons:[
         {name:'我的签到',url:'/index/sign',icon: 'ios-list-box'},
-        {name:'我的消息',url:'/components/button',icon: 'ios-mail'},
+        {name:'我的消息',url:'/index/message',icon: 'ios-mail'},
         {name:'我的课表',url:'/index/myCurse',icon: 'ios-heart'},
         {name:'个人设置',url:'/components/button',icon: 'ios-settings'},
         {name:'退出',url:'/components/button',icon: 'ios-log-out'},

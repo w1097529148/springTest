@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.UserMapper">
+    <sql id="selectUserForm" >
+        select id,user_name,user_password,user_desc from tb_user
+    </sql>
+    <resultMap id="resultMap" type="com.spring.bean.User">
+        <id property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPassword" column="user_password"/>
+        <result column="salt" property="salt"/>
+    </resultMap>
+    <sql id="queryUserWhere">
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null and name!=''">
+                and user_name=#{name}
+                <if test="userPassword!=null and userPassword!=''">
+                    and user_password=#{userPassword}
+                </if>
+            </if>
+
+        </where>
+    </sql>
+    <select id="findUserById" parameterType="int"  resultMap="resultMap">
+        <include refid="selectUserForm"/>
+        where id=#{id}
+    </select>
+
+    <select id="queryUserAll"  parameterType="com.spring.bean.User"  resultMap="resultMap">
+        <include refid="selectUserForm"></include>
+        <include refid="queryUserWhere"></include>
+    </select>
+    <insert id="insertUser" parameterType="com.spring.bean.User" >
+       insert into tb_user(user_name,user_password,salt) VALUES(#{userName},#{userPassword},#{salt})
+    </insert>
+
+    <update id="updateUser" parameterType="com.spring.bean.User">
+        UPDATE tb_user SET user_name=#{userName},user_passwords=#{userPassword},salt=#{salt} where id=#{id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete from tb_user where id=#{id}
+    </delete>
+
+</mapper>

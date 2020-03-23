@@ -41,7 +41,8 @@ export default new Router({
           children: [
             route('/index/signCurse','signCurse','/curse/curseList'),
             route('/index/myCurse','MyCurse','/test'),
-            route('/index/sign','sign','/sign/sign')
+            route('/index/sign','sign','/sign/sign'),
+            route('/index/message','message','/message/MyMessage')
           ]
         }
       ]

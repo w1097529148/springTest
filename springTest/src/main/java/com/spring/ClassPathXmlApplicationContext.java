@@ -6,6 +6,8 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 import java.beans.PropertyDescriptor;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -13,12 +15,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Description 手写SpringIOC
+ * @Description 手写SpringIOC（基于xml）
  * @Author Mr.Li
  * @Date 2020/3/17 13:43
  */
 public class ClassPathXmlApplicationContext implements ApplicationContext {
-    Map<String,Object> map=new HashMap<>();
+    public static final String CONTEXT_LOCATION="contextLocation";
+    public static final String CONTEXT_SERVLETCONTEXT_NAME=ClassPathXmlApplicationContext.class.getName()+":spring";
+    private Map<String,Object> map=new HashMap<>();//封装bean的容器
     @Override
     public Object getBean(String name) {
         Object o = map.get(name);
@@ -28,6 +32,9 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
     }
 
     public ClassPathXmlApplicationContext(String resourcesName) {
+        if(resourcesName==null||resourcesName.trim().equals(""))
+            throw new RuntimeException("配置文件为空");
+
 
         Document document = getInputStream(resourcesName);
         //SelectNodes("item")
@@ -48,7 +55,19 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
 
     private Document getInputStream(String resourcesName){
         SAXReader saxReader = new SAXReader();
-        InputStream resourceAsStream = ClassPathXmlApplicationContext.class.getClassLoader().getResourceAsStream(resourcesName);//返回读取指定资源的输入流。
+        InputStream resourceAsStream=null;
+        //判断是否配置了classpath：
+        if (resourcesName.startsWith("classpath:")){
+            resourcesName=resourcesName.replace("classpath:","");
+            resourceAsStream = ClassPathXmlApplicationContext.class.getClassLoader().getResourceAsStream(resourcesName);//返回读取指定资源的输入流。
+        }else {
+            try {
+                resourceAsStream=new FileInputStream(resourcesName);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
             if (resourceAsStream!=null) {
                 try {
                     return saxReader.read(resourceAsStream);
@@ -133,5 +152,9 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
         }else{
             throw new RuntimeException("请检查节点是否填写正确");
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(ClassPathXmlApplicationContext.class.getName()+":spring");
     }
 }

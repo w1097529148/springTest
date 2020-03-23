@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.RoleMapper">
+    <resultMap id="resultMap" type="com.spring.bean.Role">
+        <id property="id" column="id"/>
+        <result property="roleName" column="role_name"/>
+        <result property="roleDescription" column="role_desc"/>
+        <!--配置一对多关系-->
+        <collection property="privileges" column="id"  select="com.spring.mapper.SecurityMapper.querySecurityByRoleId"/>
+    </resultMap>
+    <sql id="selectRoleForm" >
+        select id,role_name,role_desc from tb_user_role
+    </sql>
+    <sql id="queryRoleWhere">
+        <where>
+            <if test="roleName!=null and roleName!=''">
+                and role_name=#{roleName}
+            </if>
+            <if test="roleDescription!=null and roleDescription!=''">
+                and role_desc=#{roleDescription}
+            </if>
+        </where>
+    </sql>
+    <select id="findRoleById" parameterType="int"  resultMap="resultMap">
+        <include refid="selectRoleForm"/>
+        where id=#{id}
+    </select>
+
+    <select id="queryRoleAll"  parameterType="com.spring.bean.Role"  resultMap="resultMap">
+        <include refid="selectRoleForm"></include>
+        <include refid="queryRoleWhere"></include>
+    </select>
+
+<!--    <insert id="insertRole" parameterType="com.spring.bean.Role">-->
+<!--       insert into tb_user_role(role_name,role_desc) values(#{roleName},#{roleDescription})-->
+<!--    </insert>-->
+<!--    <insert id="insertRoleSecurity" parameterType="int">-->
+<!--        insert into tb_role_security(role_id,security_id) values(#{roleId},#{securityId})-->
+<!--    </insert>-->
+<!--    <update id="updateRole" parameterType="com.spring.bean.Role">-->
+<!--        update tb_user_role SET role_name=#{roleName},role_desc=#{roleDescription} where id=#{id}-->
+<!--    </update>-->
+
+    <delete id="deleteRole" parameterType="int">
+        delete from tb_user_role where id=#{id}
+    </delete>
+
+    <delete id="deleteRoleSecurityByRoleId" parameterType="int">
+        delete from tb_role_sercurity where role_id=#{roleId}
+    </delete>
+
+
+</mapper>

@@ -2,6 +2,7 @@ package com.spring.serviceImpl;
 
 import com.spring.IService.ISecurityService;
 import com.spring.bean.Page;
+import com.spring.bean.PageBean;
 import com.spring.bean.Privilege;
 import com.spring.mapper.SecurityMapper;
 import com.spring.utils.MybatisUtils;
@@ -57,12 +58,20 @@ public class SecurityService implements ISecurityService {
     }
 
     @Override
-    public List<Privilege> querySecurityPage(Page page) {
+    public List<Privilege> querySecurityPage(PageBean page) {
         return getMapper().querySecurityPage(page);
     }
 
     @Override
     public Integer querySecurityTotal() {
         return getMapper().querySecurityTotal();
+    }
+
+    @Override
+    public List<Privilege> querySecurityByRoleId(Integer RoleId) {
+        if (RoleId!=null){
+            return getMapper().querySecurityByRoleId(RoleId);
+        }
+        return null;
     }
 }

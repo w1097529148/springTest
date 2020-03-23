@@ -1,0 +1,22 @@
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>zking 1.1 core library</description>
+    <display-name>zking core</display-name>
+    <tlib-version>1.1</tlib-version>
+    <short-name>c</short-name>
+    <uri>/xuyang</uri><!-- 这是你引入标签库的语句 -->
+    <tag>
+        <name>page</name>
+        <tag-class>com.spring.bean.PageTag</tag-class>
+        <body-content>JSP</body-content>
+
+        <attribute>
+            <name>pageBean</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

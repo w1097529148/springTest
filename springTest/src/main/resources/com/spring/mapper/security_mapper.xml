@@ -33,7 +33,7 @@
         <include refid="querySecurityWhere"></include>
     </select>
     <select id="querySecurityByRoleId" resultMap="resultMap" parameterType="int">
-            SELECT s.`id`,s.`security_name`,s.`security_resource`,s.`security_desc` FROM tb_security s JOIN  tb_role_security u ON s.id=u.security_id AND u.role_id=#{id}
+    SELECT s.* FROM tb_security s JOIN tb_role_security r ON s.`id`=r.`security_id` AND r.`role_id` IN(SELECT u.id FROM tb_user u WHERE u.id=#{RoleId});
     </select>
     <insert id="insertSecurity" parameterType="com.spring.bean.Privilege" >
        insert into tb_security(security_name,security_resource,security_desc) VALUES(#{name},#{uri},#{description})
@@ -51,7 +51,7 @@
         select  count(id) from tb_security
     </select>
 
-    <select id="querySecurityPage" resultMap="resultMap" parameterType="com.spring.bean.Page">
-        SELECT * FROM tb_security LIMIT #{pageNumbers},#{pageSize};
+    <select id="querySecurityPage" resultMap="resultMap" parameterType="com.spring.bean.PageBean">
+        SELECT * FROM tb_security LIMIT ${(page-1)*rows},#{rows};
     </select>
 </mapper>

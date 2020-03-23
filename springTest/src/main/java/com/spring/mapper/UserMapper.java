@@ -11,7 +11,7 @@ public interface UserMapper {
     public Integer updateUser(User user);
     public Integer deleteUser(Integer id);
     public List<User> queryUserAll(User user);
-    public User login(String username,String password);
+    public User login(Integer id,String username,String password);
     /**
     *@Description: 删除用户角色
     *@Params

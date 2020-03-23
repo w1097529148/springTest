@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-listPrivilege
+<% Object message = request.getAttribute("message");%>
+<%=message!=null?message:"message为空"%>
 </body>
 </html>

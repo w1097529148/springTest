@@ -52,7 +52,7 @@ public class CharacterFilter implements Filter{
         @Override
         public String getParameter(String name) {
             String parameter = request.getParameter(name);
-            if (parameter!=null||parameter.trim().equals(""))
+            if (parameter==null||parameter.trim().equals(""))
                 return null;
             if (!request.getMethod().equalsIgnoreCase("get"))
                 return parameter;

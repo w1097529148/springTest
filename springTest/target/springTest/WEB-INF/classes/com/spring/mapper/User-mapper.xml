@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.mapper.UserMapper">
     <sql id="selectUserForm" >
-        select id,user_name,user_password,user_desc from tb_user
+        select id,user_name,user_password,salt from tb_user
     </sql>
     <resultMap id="resultMap" type="com.spring.bean.User">
         <id property="id" column="id"/>
@@ -15,8 +15,8 @@
             <if test="id!=null">
                 and id=#{id}
             </if>
-            <if test="name!=null and name!=''">
-                and user_name=#{name}
+            <if test="userName!=null and userName!=''">
+                and user_name=#{userName}
                 <if test="userPassword!=null and userPassword!=''">
                     and user_password=#{userPassword}
                 </if>
@@ -38,11 +38,15 @@
     </insert>
 
     <update id="updateUser" parameterType="com.spring.bean.User">
-        UPDATE tb_user SET user_name=#{userName},user_passwords=#{userPassword},salt=#{salt} where id=#{id}
+        UPDATE tb_user SET user_name=#{userName},user_password=#{userPassword},salt=#{salt} where id=#{id}
     </update>
 
     <delete id="deleteUserById" parameterType="int">
         delete from tb_user where id=#{id}
     </delete>
+
+    <select id="querySecurityByUserId" parameterType="int" resultType="com.spring.bean.Privilege">
+        SELECT s.* FROM tb_security s JOIN tb_role_security r ON s.`id`=r.`security_id` AND r.`role_id` IN(SELECT u.id FROM tb_user u WHERE u.id=#{userId});
+    </select>
 
 </mapper>

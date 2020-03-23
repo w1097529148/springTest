@@ -20,7 +20,7 @@
     </environments>
     <mappers>
         <mapper resource="com/spring/mapper/security_mapper.xml"/>
-        <mapper resource="com/spring/mapper/role-mapper.xml"/>
+        <mapper resource="com/spring/mapper/User-mapper.xml"/>
         <mapper resource="com/spring/mapper/File-mapper.xml"/>
         <mapper resource="com/spring/mapper/role-mapper.xml"/>
     </mappers>

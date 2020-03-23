@@ -1,6 +1,7 @@
 package com.spring.mapper;
 
 import com.spring.bean.Page;
+import com.spring.bean.PageBean;
 import com.spring.bean.Privilege;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface SecurityMapper {
     *@Author Mr.Li
     *@Date 2020/3/20 13:06
     */
-    public List<Privilege> querySecurityPage(Page page);
+    public List<Privilege> querySecurityPage(PageBean page);
     /**
     *@Description: 查询总记录
     *@Params

@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @Description T000
  * @Author Mr.Li
@@ -12,14 +14,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Page {
-    private Integer pageNumbers;//当前页数
-    private Integer pageSize;//每页条数
+public class Page<E> {
+    private int total;//信息总数
+    private int page;//当前页
+    private int size;//每页信息条数
+    private List<E> rows;//每一页的信息存放的列表
 
-    public Integer getPageNumbers() {
-        return pageNumbers*this.pageSize;
-    }
-    public void setPageNumbers(Integer pageNumbers) {
-        this.pageNumbers = pageNumbers*this.pageSize;
-    }
 }

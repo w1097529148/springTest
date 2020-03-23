@@ -12,5 +12,8 @@
 </head>
 <body>
 putong权限
+<a href="PageServlet?method=querySecurityAll">查询全部权限</a>
+<a href="${request.getContextPath()}/PageServlet?method=findSecurityById">根据权限id查询权限</a>
+<a href="${request.getContextPath()}/SecurityServlet">分页查询权限</a>
 </body>
 </html>

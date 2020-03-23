@@ -60,14 +60,13 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User login(String username, String password) {
+    public User login(Integer id,String username, String password) {
         if (username==null||username.trim().equals(""))
         throw new RuntimeException("用户名为空");
         if (password==null||password.trim().equals(""))
             throw new RuntimeException("密码为空");
-        User user=new User();
-        user.setUserName(username);
-        user.setUserPassword(password);
+        //salt=MD5Utils.md5Password(password);
+        User user=new User(id,username,password,null);
         user.setSalt(MD5Utils.md5Password(password));
         List<User> users = getMapper().queryUserAll(user);
         if (users!=null&&users.size()==1)

@@ -7,32 +7,23 @@
 </head>
 <body>
 <h2>Hello World!</h2>
-<form action="Servlet" method="post" enctype="application/x-www-form-urlencoded">
-        <input type="text" name="username" value="username"/>
-        <input type="text" name="password" value="password"/>
+<form action="${request.getContextPath()}/LoginServlet" method="post" enctype="application/x-www-form-urlencoded">
+        id:<input type="text" name="id" value="1">
+        name:<input type="text" name="username" value="1"/>
+        pwd:<input type="text" name="password" value="1"/>
         <input type="submit" value="提交"/>
 </form>
-<form enctype="multipart/form-data" method="get" action="Servlet">
-        <input type="text" name="name"/>
-        <input type="submit" value="提交"/>
-</form> 
-<a href="${request.getContextPath()}/PageServlet?method=">head</a>
-<a href="${request.getContextPath()}/PageServlet?method=left">left</a>
-        <a href="Servlet?method=querySecurityAll">查询全部权限</a>
-        <a href="${request.getContextPath()}/Servlet?method=findSecurityById">根据权限id查询权限</a>
-        <a href="${request.getContextPath()}/PageServlet?method=insertSecurity">新增权限</a>
-        <a href="${request.getContextPath()}/PageServlet?method=updateSecurity">修改权限</a>
-        <a href="${request.getContextPath()}/PageServlet?method=deleteSecurity">删除权限</a>
-        <a href="${request.getContextPath()}/PageServlet?method=querySecurityPage">分页查询权限</a>
-        <a href="${request.getContextPath()}/PageServlet?method=querySecurityTotal">查询权限总数</a>
-<br/>
-<form action="/FileController" method="post" enctype="multipart/form-data">
-        <input type="text" name="userId">
-        <input type="file"/>
-        <input type="file"/>
-        <input type="file"/>
-        <input type="submit" value="提交"/>
-</form>
+<%--<br/>--%>
+<%--<form action="/FileController" method="post" enctype="multipart/form-data">--%>
+<%--        <input type="text" name="userId">--%>
+<%--        <input type="file"/>--%>
+<%--        <input type="file"/>--%>
+<%--        <input type="file"/>--%>
+<%--        <input type="submit" value="提交"/>--%>
+<%--</form>--%>
+
+<h3>自定义标签</h3>
+<a href="/SecurityServlet">分页</a>
 </body>
 
 </html>

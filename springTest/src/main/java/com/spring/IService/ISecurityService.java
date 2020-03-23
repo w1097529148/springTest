@@ -1,6 +1,7 @@
 package com.spring.IService;
 
 import com.spring.bean.Page;
+import com.spring.bean.PageBean;
 import com.spring.bean.Privilege;
 import com.spring.mapper.SecurityMapper;
 import com.spring.utils.MybatisUtils;
@@ -18,7 +19,7 @@ public interface ISecurityService {
     public Integer updateSecurity(Privilege privilege);
     public Integer deleteSecurityById(Integer id);
     public List<Privilege> querySecurityAll(Privilege privilege);
-    public List<Privilege> querySecurityPage(Page page);
+    public List<Privilege> querySecurityPage(PageBean page);
     /**
      *@Description: 查询总记录
      *@Params
@@ -27,4 +28,5 @@ public interface ISecurityService {
      *@Date 2020/3/20 13:08
      */
     public Integer querySecurityTotal();
+    public List<Privilege> querySecurityByRoleId(Integer RoleId);
 }

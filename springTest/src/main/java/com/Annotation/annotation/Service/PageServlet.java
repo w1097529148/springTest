@@ -25,15 +25,16 @@ import java.util.List;
  * @Date 2020/3/20 12:55
  */
 @WebServlet(name = "PageServlet1",urlPatterns="/PageServlet1")
-@Aspect
+
 public class PageServlet extends HttpServlet {
-    @Autowired
+
     private SecurityService securityService;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
         ApplicationContext applicationContext = WebApplicationContextUtils.getApplicationContext(getServletContext());
+        securityService = (SecurityService) applicationContext.getBean("SecurityService");
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

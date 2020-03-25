@@ -19,6 +19,7 @@ import java.util.List;
  * @Date 2020/3/19 14:43
  */
 @Service("SecurityService")
+@Aspect
 public class SecurityService implements ISecurityService {
     private SecurityMapper getMapper(){
         return MybatisUtils.getMapper(SecurityMapper.class);
@@ -63,6 +64,7 @@ public class SecurityService implements ISecurityService {
     public Integer querySecurityTotal() {
         return getMapper().querySecurityTotal();
     }
+    @security("admin")
     @Override
     public List<Privilege> querySecurityByRoleId(Integer RoleId) {
         if (RoleId!=null){

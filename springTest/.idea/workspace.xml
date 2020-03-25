@@ -66,7 +66,9 @@
       <change afterPath="$PROJECT_DIR$/../mySsmTest/target/mySsmTest/index.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mySsmTest/target/mySsmTest/views/hello.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mysign1" beforeDir="false" afterPath="$PROJECT_DIR$/../mysign1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/PageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/PageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/SecurityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/SecurityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/security/left.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../mySsmTest/src/main/webapp/views/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/springTest/security/left.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../mySsmTest/target/mySsmTest/views/index.jsp" afterDir="false" />
     </list>
@@ -132,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/SecurityService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-459">
-              <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+            <state relative-caret-position="204">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#741#742#0" expanded="true" />
@@ -162,8 +164,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/PageServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+            <state relative-caret-position="34">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -197,7 +199,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -259,8 +261,8 @@
       <find>PageServlet</find>
       <find>securityService</find>
       <find>ISecurityService</find>
-      <find>getMapper()</find>
       <find>getBean</find>
+      <find>getMapper()</find>
     </findStrings>
     <replaceStrings>
       <replace>sqlSession</replace>
@@ -291,8 +293,8 @@
       <replace>PageServlet1</replace>
       <replace>ISecurityService</replace>
       <replace>securityService</replace>
-      <replace>securityMapper</replace>
       <replace>Repository</replace>
+      <replace>securityMapper</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -344,14 +346,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/spring/serviceImpl/SecurityService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/test/bean/testBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spring/mapper/SecurityMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/SecurityService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/testService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/PageServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/test/testAnnotation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/utils/ClassPathXmlApplicationContext1.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/exception/ExceptionEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/exception/MyException.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/PageServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/SecurityService.java" />
       </list>
     </option>
   </component>
@@ -965,7 +967,7 @@
       <workItem from="1584973129646" duration="7010000" />
       <workItem from="1585005984709" duration="4522000" />
       <workItem from="1585016248899" duration="11909000" />
-      <workItem from="1585095618682" duration="24998000" />
+      <workItem from="1585095618682" duration="25845000" />
     </task>
     <task id="LOCAL-00001" summary="手写SpringIOC">
       <created>1584437639110</created>
@@ -1023,7 +1025,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585127763036</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="权限管理">
+      <created>1585128238470</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1585128238470</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1059,7 +1068,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185141000" />
+    <option name="totallyTimeSpent" value="185988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1072,7 +1081,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="59" width="1873" height="911" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8860215" visible="true" weight="0.19635962" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1140,7 +1148,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/PageServlet.java</url>
-          <line>43</line>
+          <line>44</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
@@ -1509,22 +1517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/SecurityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459">
-          <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#741#742#0" expanded="true" />
-            <element signature="e#808#809#0" expanded="true" />
-            <element signature="e#1594#1595#0" expanded="true" />
-            <element signature="e#1652#1653#0" expanded="true" />
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1763#1764#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Annotation/annotation/test/testAnnotation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -1576,20 +1568,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/PageServlet.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <caret line="72" selection-start-line="72" selection-end-line="77" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/PageServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Annotation/annotation/Service/SecurityService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="72" selection-start-line="72" selection-end-line="77" selection-end-column="17" />
+        <state relative-caret-position="204">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#1652#1653#0" expanded="true" />
+            <element signature="e#1708#1709#0" expanded="true" />
+            <element signature="e#1763#1764#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

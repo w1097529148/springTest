@@ -153,8 +153,4 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
             throw new RuntimeException("请检查节点是否填写正确");
         }
     }
-
-    public static void main(String[] args) {
-        System.out.println(ClassPathXmlApplicationContext.class.getName()+":spring");
-    }
 }

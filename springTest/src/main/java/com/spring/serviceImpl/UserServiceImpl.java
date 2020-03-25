@@ -1,5 +1,6 @@
 package com.spring.serviceImpl;
 
+import com.Annotation.annotation.ioc.Service;
 import com.spring.IService.IUserService;
 import com.spring.bean.User;
 import com.spring.mapper.UserMapper;
@@ -14,6 +15,7 @@ import java.util.List;
  * @Author Mr.Li
  * @Date 2020/3/19 15:56
  */
+@Service("UserServiceImpl")
 public class UserServiceImpl implements IUserService {
     private UserMapper getMapper(){
         return MybatisUtils.getMapper(UserMapper.class);

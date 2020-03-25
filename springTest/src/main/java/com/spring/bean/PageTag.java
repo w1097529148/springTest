@@ -1,5 +1,8 @@
 package com.spring.bean;
 
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
@@ -19,7 +22,11 @@ public class PageTag extends BodyTagSupport {
 
     @Override
     public int doStartTag() throws JspException {
-        String pagination = pageContext.getRequest().getParameter("pagination");
+        String pagination = "false";
+        Privilege security = (Privilege) pageContext.getSession().getAttribute("security");
+        if (ObjectUtils.isNotEmpty(security))
+            if ("admin".equals(security.getName()))
+                pagination="true";
         if ("false".equals(pagination)){
             return Tag.SKIP_BODY;//控制自定义标签不执行
         }

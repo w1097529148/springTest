@@ -1,5 +1,6 @@
 package com.spring.serviceImpl;
 
+import com.Annotation.annotation.ioc.Service;
 import com.spring.IService.IRoleService;
 import com.spring.bean.Role;
 import com.spring.mapper.RoleMapper;
@@ -13,6 +14,7 @@ import java.util.List;
  * @Author Mr.Li
  * @Date 2020/3/19 15:57
  */
+@Service("RoleServiceImpl")
 public class RoleServiceImpl implements IRoleService {
     private RoleMapper getMapper(){
         return MybatisUtils.getMapper(RoleMapper.class);

@@ -1,9 +1,8 @@
 package com.spring.utils;
 
+import com.Annotation.annotation.utils.ClassPathXmlApplicationContext1;
 import com.spring.ApplicationContext;
-import com.spring.ClassPathXmlApplicationContext;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
 
 /**
@@ -13,6 +12,6 @@ import javax.servlet.ServletContext;
  */
 public class WebApplicationContextUtils {
     public static ApplicationContext getApplicationContext(ServletContext servletContext){
-        return (ApplicationContext) servletContext.getAttribute(ClassPathXmlApplicationContext.CONTEXT_SERVLETCONTEXT_NAME);
+        return (ApplicationContext) servletContext.getAttribute(ClassPathXmlApplicationContext1.CONTEXT_SERVLETCONTEXT_NAME);
     }
 }

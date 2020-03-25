@@ -33,13 +33,6 @@ index.jsp
         </tr>
     </c:forEach>
 </table>
-控制是否显示
-<form action="${pageBean.getUrl()}" method="post">
-    分页显示：<input type='radio' value='true' name='pagination'/><br/>
-    不显示： <input type='radio' value='false' name='pagination'/>
-    <input type='submit' value='提交'/>
-
-</form>
 <h3>自定义分页标签</h3>
 <my:page pageBean="${pagebean}" ></my:page>
 </body>

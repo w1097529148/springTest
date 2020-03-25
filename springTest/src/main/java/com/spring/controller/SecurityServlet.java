@@ -1,5 +1,6 @@
 package com.spring.controller;
 
+import com.Annotation.annotation.di.Autowired;
 import com.spring.ApplicationContext;
 import com.spring.bean.Page;
 import com.spring.bean.PageBean;
@@ -26,7 +27,8 @@ import java.util.List;
 public class SecurityServlet extends HttpServlet {
 
         private static final long serialVersionUID = -4443656491740044602L;
-        private SecurityService security=null;
+        @Autowired
+        private SecurityService security;
 
     @Override
     public void init(ServletConfig config) throws ServletException {

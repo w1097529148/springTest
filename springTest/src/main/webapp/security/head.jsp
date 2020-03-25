@@ -12,12 +12,12 @@
 </head>
 <body>
 admin权限
-<a href="PageServlet?method=querySecurityAll">查询全部权限</a>
-<a href="${request.getContextPath()}/PageServlet?method=findSecurityById">根据权限id查询权限</a>
-<a href="${request.getContextPath()}/PageServlet?method=insertSecurity">新增权限</a>
-<a href="${request.getContextPath()}/PageServlet?method=updateSecurity">修改权限</a>
-<a href="${request.getContextPath()}/PageServlet?method=deleteSecurity">删除权限</a>
+<a href="${request.getContextPath()}/PageServlet1?method=querySecurityAll">查询全部权限</a>
+<a href="${request.getContextPath()}/PageServlet1?method=findSecurityById">根据权限id查询权限</a>
+<a href="${request.getContextPath()}/PageServlet1?method=insertSecurity">新增权限</a>
+<a href="${request.getContextPath()}/PageServlet1?method=updateSecurity">修改权限</a>
+<a href="${request.getContextPath()}/PageServlet1?method=deleteSecurity">删除权限</a>
 <a href="${request.getContextPath()}/SecurityServlet">分页查询权限</a>
-<a href="${request.getContextPath()}/PageServlet?method=querySecurityTotal">查询权限总数</a>
+<a href="${request.getContextPath()}/PageServlet1?method=querySecurityTotal">查询权限总数</a>
 </body>
 </html>

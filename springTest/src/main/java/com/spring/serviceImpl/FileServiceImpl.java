@@ -1,5 +1,6 @@
 package com.spring.serviceImpl;
 
+import com.Annotation.annotation.ioc.Service;
 import com.spring.IService.IFileService;
 import com.spring.bean.File;
 import com.spring.mapper.FileMapper;
@@ -14,6 +15,7 @@ import java.util.List;
  * @Author Mr.Li
  * @Date 2020/3/19 15:58
  */
+@Service("FileServiceImpl")
 public class FileServiceImpl implements IFileService {
     private FileMapper getMapper(){
         return MybatisUtils.getMapper(FileMapper.class);

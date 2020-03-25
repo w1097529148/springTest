@@ -48,7 +48,8 @@ public class LoginServlet extends HttpServlet {
 //                        判定权限跳转相应页面
                     for (Privilege privilege : privileges) {
                         if (privilege.getName().equalsIgnoreCase("admin")){
-                            response.sendRedirect("security/head.jsp");
+                            request.getSession().setAttribute("security",privilege);
+                            response.sendRedirect("security/page.jsp");
                             return;
                         }else if(privilege.getName().equalsIgnoreCase("putong")){
                             response.sendRedirect("security/putong.jsp");
@@ -60,7 +61,7 @@ public class LoginServlet extends HttpServlet {
             }
         }
         request.setAttribute("message",null);
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        response.sendRedirect("index.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

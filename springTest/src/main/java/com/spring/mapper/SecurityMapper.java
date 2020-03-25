@@ -1,11 +1,11 @@
 package com.spring.mapper;
 
+import com.Annotation.annotation.ioc.Repository;
 import com.spring.bean.Page;
 import com.spring.bean.PageBean;
 import com.spring.bean.Privilege;
 
 import java.util.List;
-
 public interface SecurityMapper {
     public Privilege findSecurityById(Integer id);
     public Integer insertSecurity(Privilege privilege);

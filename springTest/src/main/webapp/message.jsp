@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
 </head>
+<script src="./index.jsp"/>
 <body>
 message
 </body>

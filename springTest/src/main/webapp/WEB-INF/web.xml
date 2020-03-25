@@ -8,7 +8,7 @@
     </welcome-file-list>
     <context-param>
         <param-name>contextLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
+        <param-value>classpath:annotationContext.xml</param-value>
     </context-param>
     <listener>
         <listener-class>com.spring.listener.ContextListener</listener-class>

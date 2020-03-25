@@ -1,5 +1,6 @@
 package com.spring.filter;
 
+import com.Annotation.annotation.UserThreadLocal;
 import com.spring.ApplicationContext;
 import com.spring.bean.Privilege;
 import com.spring.bean.User;
@@ -19,7 +20,7 @@ import java.util.List;
  * @Author Mr.Li
  * @Date 2020/3/23 16:46
  */
-@WebFilter(filterName = "permissonFilter",urlPatterns = "/*")
+//@WebFilter(filterName = "permissonFilter",urlPatterns = "/*")
 public class PermissFilter implements Filter {
     private SecurityService userService;
     @Override
@@ -33,6 +34,10 @@ public class PermissFilter implements Filter {
         HttpServletRequest servletRequest1 = (HttpServletRequest) servletRequest;
         HttpServletResponse servletResponse1 = (HttpServletResponse) servletResponse;
         String requestURI = servletRequest1.getRequestURI();
+        String contextPath = servletRequest1.getContextPath();
+        System.out.println("contextPath = " + contextPath);
+        StringBuffer requestURI1 = servletRequest1.getRequestURL();
+        System.out.println("requestURI1 = " + requestURI1);
         System.out.println("requestURI = " + requestURI);
         //对登录页面，登录处理servlet，权限分页servlet放行
         if (requestURI.equalsIgnoreCase("/index.jsp")|requestURI.equalsIgnoreCase("/")|requestURI.contains("/LoginServlet")|requestURI.contains("/SecurityServlet")
@@ -48,6 +53,7 @@ public class PermissFilter implements Filter {
         }
 
         User user = (User) session.getAttribute("user");
+        UserThreadLocal.setUser(user);
         System.out.println("user = " + user);
         if (user==null){
             servletResponse1.sendRedirect("index.jsp");
@@ -71,6 +77,7 @@ public class PermissFilter implements Filter {
             servletResponse1.sendRedirect("index.jsp");
         }
         filterChain.doFilter(servletRequest1,servletResponse1);
+        UserThreadLocal.remove();
 
     }
 

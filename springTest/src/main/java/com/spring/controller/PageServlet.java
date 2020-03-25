@@ -1,11 +1,12 @@
 package com.spring.controller;
 
+import com.Annotation.annotation.Service.SecurityService;
 import com.spring.ApplicationContext;
 import com.spring.ClassPathXmlApplicationContext;
 import com.spring.bean.Page;
 import com.spring.bean.PageBean;
 import com.spring.bean.Privilege;
-import com.spring.serviceImpl.SecurityService;
+
 import com.spring.utils.MybatisUtils;
 import com.spring.utils.WebApplicationContextUtils;
 import org.apache.commons.collections.CollectionUtils;
@@ -20,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-
 /**
  * @Description T000
  * @Author Mr.Li
@@ -34,7 +34,6 @@ public class PageServlet extends HttpServlet {
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
         ApplicationContext applicationContext = WebApplicationContextUtils.getApplicationContext(getServletContext());
-        securityService= (SecurityService) applicationContext.getBean("securityService");
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

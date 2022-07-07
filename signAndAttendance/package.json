@@ -13,7 +13,7 @@
     "animate.css": "^3.7.2",
     "axios": "^0.19.2",
     "bmaplib.distancetool": "^1.0.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "qs.js": "^0.1.12",
     "view-design": "^4.1.1",
     "vue": "^2.5.2",
